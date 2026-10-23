@@ -92,7 +92,7 @@ class Snake(GameObject):
             screen.fill(BOARD_BACKGROUND_COLOR)
             self.reset()
             return
-        
+
         self.positions.insert(0, new_head)
         if len(self.positions) > self.length:
             self.last = self.positions.pop()
@@ -106,7 +106,7 @@ class Snake(GameObject):
         )
         pygame.draw.rect(screen, self.body_color, head_rect)
         pygame.draw.rect(screen, (50, 50, 50), head_rect, 1)
-        
+
         if self.last:
             last_rect = pygame.Rect(self.last, (GRID_SIZE, GRID_SIZE))
             pygame.draw.rect(screen, BOARD_BACKGROUND_COLOR, last_rect)
@@ -145,11 +145,11 @@ def main():
         handle_keys(snake)
         snake.update_direction()
         snake.move()
-        
+
         if snake.get_head_position() == apple.position:
             snake.length += 1
             apple.randomize_position()
-            
+
         apple.draw()
         snake.draw()
         pygame.display.update()
